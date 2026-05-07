@@ -1,0 +1,275 @@
+2026-04-28 14:03:56,098 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-04-28 14:03:56,322 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.85.96:5001
+2026-04-28 14:03:56,322 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-01 23:53:05,024 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-01 23:53:05,362 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-01 23:53:05,363 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-01 23:53:44,679 - INFO - 127.0.0.1 - - [01/May/2026 23:53:44] "POST /predict HTTP/1.1" 200 -
+2026-05-01 23:54:34,054 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-01 23:54:34,274 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-01 23:54:34,274 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-01 23:54:42,728 - INFO - 127.0.0.1 - - [01/May/2026 23:54:42] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:03:55,031 - INFO - 127.0.0.1 - - [02/May/2026 00:03:55] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:04:54,695 - INFO - 127.0.0.1 - - [02/May/2026 00:04:54] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:04:59,088 - INFO - 127.0.0.1 - - [02/May/2026 00:04:59] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:05:23,035 - INFO - 127.0.0.1 - - [02/May/2026 00:05:23] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:05:45,303 - INFO - 127.0.0.1 - - [02/May/2026 00:05:45] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:05:59,518 - INFO - 127.0.0.1 - - [02/May/2026 00:05:59] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:07:09,690 - INFO - 127.0.0.1 - - [02/May/2026 00:07:09] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:09:17,029 - INFO - 127.0.0.1 - - [02/May/2026 00:09:17] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:09:35,214 - INFO - 127.0.0.1 - - [02/May/2026 00:09:35] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:09:56,103 - INFO - 127.0.0.1 - - [02/May/2026 00:09:56] "POST /predict HTTP/1.1" 200 -
+2026-05-02 00:41:26,400 - INFO - 127.0.0.1 - - [02/May/2026 00:41:26] "POST /predict HTTP/1.1" 200 -
+2026-05-03 01:14:27,298 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-03 01:14:27,682 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.48.96:5001
+2026-05-03 01:14:27,682 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 01:42:52,671 - INFO - 127.0.0.1 - - [03/May/2026 01:42:52] "POST /predict HTTP/1.1" 200 -
+2026-05-03 02:56:51,639 - INFO - 127.0.0.1 - - [03/May/2026 02:56:51] "POST /predict HTTP/1.1" 200 -
+2026-05-03 03:03:44,168 - INFO - 127.0.0.1 - - [03/May/2026 03:03:44] "POST /predict HTTP/1.1" 200 -
+2026-05-03 03:03:51,083 - INFO - 127.0.0.1 - - [03/May/2026 03:03:51] "POST /predict HTTP/1.1" 200 -
+2026-05-03 03:09:17,492 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-03 03:09:17,745 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-05-03 03:09:17,745 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 16:02:49,162 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-03 16:02:49,424 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-05-03 16:02:49,424 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 16:30:56,642 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-03 16:30:56,871 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2026-05-03 16:30:56,871 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-03 16:37:31,737 - INFO - 127.0.0.1 - - [03/May/2026 16:37:31] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:37:31,739 - INFO - 127.0.0.1 - - [03/May/2026 16:37:31] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:37:32,796 - INFO - 127.0.0.1 - - [03/May/2026 16:37:32] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:37:33,261 - INFO - 127.0.0.1 - - [03/May/2026 16:37:33] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:37:36,750 - INFO - 127.0.0.1 - - [03/May/2026 16:37:36] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:37:40,984 - INFO - 127.0.0.1 - - [03/May/2026 16:37:40] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:37:44,564 - INFO - 127.0.0.1 - - [03/May/2026 16:37:44] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:37:49,232 - INFO - 127.0.0.1 - - [03/May/2026 16:37:49] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:37:53,200 - INFO - 127.0.0.1 - - [03/May/2026 16:37:53] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:37:57,197 - INFO - 127.0.0.1 - - [03/May/2026 16:37:57] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:38:00,833 - INFO - 127.0.0.1 - - [03/May/2026 16:38:00] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:38:04,589 - INFO - 127.0.0.1 - - [03/May/2026 16:38:04] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:38:08,635 - INFO - 127.0.0.1 - - [03/May/2026 16:38:08] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:38:12,411 - INFO - 127.0.0.1 - - [03/May/2026 16:38:12] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:38:15,321 - INFO - 127.0.0.1 - - [03/May/2026 16:38:15] "POST /predict HTTP/1.1" 200 -
+2026-05-03 16:38:19,561 - INFO - 127.0.0.1 - - [03/May/2026 16:38:19] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:16,932 - INFO - 127.0.0.1 - - [03/May/2026 23:21:16] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:16,935 - INFO - 127.0.0.1 - - [03/May/2026 23:21:16] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:16,936 - INFO - 127.0.0.1 - - [03/May/2026 23:21:16] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:16,937 - INFO - 127.0.0.1 - - [03/May/2026 23:21:16] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:16,938 - INFO - 127.0.0.1 - - [03/May/2026 23:21:16] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:16,939 - INFO - 127.0.0.1 - - [03/May/2026 23:21:16] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:19,377 - INFO - 127.0.0.1 - - [03/May/2026 23:21:19] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:21,071 - INFO - 127.0.0.1 - - [03/May/2026 23:21:21] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:23,816 - INFO - 127.0.0.1 - - [03/May/2026 23:21:23] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:25,156 - INFO - 127.0.0.1 - - [03/May/2026 23:21:25] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:28,066 - INFO - 127.0.0.1 - - [03/May/2026 23:21:28] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:30,238 - INFO - 127.0.0.1 - - [03/May/2026 23:21:30] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:32,836 - INFO - 127.0.0.1 - - [03/May/2026 23:21:32] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:35,324 - INFO - 127.0.0.1 - - [03/May/2026 23:21:35] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:37,825 - INFO - 127.0.0.1 - - [03/May/2026 23:21:37] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:40,457 - INFO - 127.0.0.1 - - [03/May/2026 23:21:40] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:42,876 - INFO - 127.0.0.1 - - [03/May/2026 23:21:42] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:45,413 - INFO - 127.0.0.1 - - [03/May/2026 23:21:45] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:47,927 - INFO - 127.0.0.1 - - [03/May/2026 23:21:47] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:50,605 - INFO - 127.0.0.1 - - [03/May/2026 23:21:50] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:53,331 - INFO - 127.0.0.1 - - [03/May/2026 23:21:53] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:56,045 - INFO - 127.0.0.1 - - [03/May/2026 23:21:56] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:21:58,525 - INFO - 127.0.0.1 - - [03/May/2026 23:21:58] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:01,035 - INFO - 127.0.0.1 - - [03/May/2026 23:22:01] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:28,619 - INFO - 127.0.0.1 - - [03/May/2026 23:22:28] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:30,822 - INFO - 127.0.0.1 - - [03/May/2026 23:22:30] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:32,789 - INFO - 127.0.0.1 - - [03/May/2026 23:22:32] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:35,392 - INFO - 127.0.0.1 - - [03/May/2026 23:22:35] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:37,894 - INFO - 127.0.0.1 - - [03/May/2026 23:22:37] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:40,408 - INFO - 127.0.0.1 - - [03/May/2026 23:22:40] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:43,018 - INFO - 127.0.0.1 - - [03/May/2026 23:22:43] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:45,134 - INFO - 127.0.0.1 - - [03/May/2026 23:22:45] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:48,605 - INFO - 127.0.0.1 - - [03/May/2026 23:22:48] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:22:50,324 - INFO - 127.0.0.1 - - [03/May/2026 23:22:50] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:49:53,071 - INFO - 127.0.0.1 - - [03/May/2026 23:49:53] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:49:56,780 - INFO - 127.0.0.1 - - [03/May/2026 23:49:56] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:00,154 - INFO - 127.0.0.1 - - [03/May/2026 23:50:00] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:04,083 - INFO - 127.0.0.1 - - [03/May/2026 23:50:04] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:08,301 - INFO - 127.0.0.1 - - [03/May/2026 23:50:08] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:09,458 - INFO - 127.0.0.1 - - [03/May/2026 23:50:09] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:17,956 - INFO - 127.0.0.1 - - [03/May/2026 23:50:17] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:18,086 - INFO - 127.0.0.1 - - [03/May/2026 23:50:18] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:19,342 - INFO - 127.0.0.1 - - [03/May/2026 23:50:19] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:23,326 - INFO - 127.0.0.1 - - [03/May/2026 23:50:23] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:26,859 - INFO - 127.0.0.1 - - [03/May/2026 23:50:26] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:30,480 - INFO - 127.0.0.1 - - [03/May/2026 23:50:30] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:34,293 - INFO - 127.0.0.1 - - [03/May/2026 23:50:34] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:37,845 - INFO - 127.0.0.1 - - [03/May/2026 23:50:37] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:41,805 - INFO - 127.0.0.1 - - [03/May/2026 23:50:41] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:45,522 - INFO - 127.0.0.1 - - [03/May/2026 23:50:45] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:49,198 - INFO - 127.0.0.1 - - [03/May/2026 23:50:49] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:52,547 - INFO - 127.0.0.1 - - [03/May/2026 23:50:52] "POST /predict HTTP/1.1" 200 -
+2026-05-03 23:50:56,459 - INFO - 127.0.0.1 - - [03/May/2026 23:50:56] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:32:58,556 - ERROR - Load Error: Could not locate function 'focal_loss'. Make sure custom classes and functions are decorated with `@keras.saving.register_keras_serializable()`. If they are already decorated, make sure they are all imported so that the decorator is run before trying to load them. Full object config: {'module': 'builtins', 'class_name': 'function', 'config': 'focal_loss', 'registered_name': 'function'}
+2026-05-04 00:32:58,627 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-04 00:32:58,628 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-04 00:34:17,993 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-04 00:34:18,395 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-04 00:34:18,395 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-04 00:34:47,263 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-04 00:34:47,684 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-04 00:34:47,684 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-04 00:37:16,397 - INFO - 127.0.0.1 - - [04/May/2026 00:37:16] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:37:16,399 - INFO - 127.0.0.1 - - [04/May/2026 00:37:16] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:37:19,638 - INFO - 127.0.0.1 - - [04/May/2026 00:37:19] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:37:20,012 - INFO - 127.0.0.1 - - [04/May/2026 00:37:20] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:37:20,407 - INFO - 127.0.0.1 - - [04/May/2026 00:37:20] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:37:25,659 - INFO - 127.0.0.1 - - [04/May/2026 00:37:25] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:37:28,795 - INFO - 127.0.0.1 - - [04/May/2026 00:37:28] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:39:14,675 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-04 00:39:15,011 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-04 00:39:15,011 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-04 00:40:47,403 - INFO - 127.0.0.1 - - [04/May/2026 00:40:47] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:40:47,434 - INFO - 127.0.0.1 - - [04/May/2026 00:40:47] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:40:49,689 - INFO - 127.0.0.1 - - [04/May/2026 00:40:49] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:40:50,572 - INFO - 127.0.0.1 - - [04/May/2026 00:40:50] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:40:56,086 - INFO - 127.0.0.1 - - [04/May/2026 00:40:56] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:40:59,862 - INFO - 127.0.0.1 - - [04/May/2026 00:40:59] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:04,065 - INFO - 127.0.0.1 - - [04/May/2026 00:41:04] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:09,439 - INFO - 127.0.0.1 - - [04/May/2026 00:41:09] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:12,197 - INFO - 127.0.0.1 - - [04/May/2026 00:41:12] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:15,990 - INFO - 127.0.0.1 - - [04/May/2026 00:41:15] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:20,371 - INFO - 127.0.0.1 - - [04/May/2026 00:41:20] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:24,401 - INFO - 127.0.0.1 - - [04/May/2026 00:41:24] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:29,129 - INFO - 127.0.0.1 - - [04/May/2026 00:41:29] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:33,336 - INFO - 127.0.0.1 - - [04/May/2026 00:41:33] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:37,172 - INFO - 127.0.0.1 - - [04/May/2026 00:41:37] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:40,939 - INFO - 127.0.0.1 - - [04/May/2026 00:41:40] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:42,163 - INFO - 127.0.0.1 - - [04/May/2026 00:41:42] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:44,094 - INFO - 127.0.0.1 - - [04/May/2026 00:41:44] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:47,697 - INFO - 127.0.0.1 - - [04/May/2026 00:41:47] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:49,323 - INFO - 127.0.0.1 - - [04/May/2026 00:41:49] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:51,561 - INFO - 127.0.0.1 - - [04/May/2026 00:41:51] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:54,577 - INFO - 127.0.0.1 - - [04/May/2026 00:41:54] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:41:57,652 - INFO - 127.0.0.1 - - [04/May/2026 00:41:57] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:00,601 - INFO - 127.0.0.1 - - [04/May/2026 00:42:00] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:03,746 - INFO - 127.0.0.1 - - [04/May/2026 00:42:03] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:07,040 - INFO - 127.0.0.1 - - [04/May/2026 00:42:07] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:10,290 - INFO - 127.0.0.1 - - [04/May/2026 00:42:10] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:13,152 - INFO - 127.0.0.1 - - [04/May/2026 00:42:13] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:16,174 - INFO - 127.0.0.1 - - [04/May/2026 00:42:16] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:19,028 - INFO - 127.0.0.1 - - [04/May/2026 00:42:19] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:21,918 - INFO - 127.0.0.1 - - [04/May/2026 00:42:21] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:24,914 - INFO - 127.0.0.1 - - [04/May/2026 00:42:24] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:27,989 - INFO - 127.0.0.1 - - [04/May/2026 00:42:27] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:31,037 - INFO - 127.0.0.1 - - [04/May/2026 00:42:31] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:33,914 - INFO - 127.0.0.1 - - [04/May/2026 00:42:33] "POST /predict HTTP/1.1" 200 -
+2026-05-04 00:42:36,992 - INFO - 127.0.0.1 - - [04/May/2026 00:42:36] "POST /predict HTTP/1.1" 200 -
+2026-05-04 02:55:23,649 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-04 02:55:23,975 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-04 02:55:23,975 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-05 10:26:05,155 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-05 10:26:05,812 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-05 10:26:05,812 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-05 10:27:59,446 - INFO - 127.0.0.1 - - [05/May/2026 10:27:59] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:27:59,449 - INFO - 127.0.0.1 - - [05/May/2026 10:27:59] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:02,151 - INFO - 127.0.0.1 - - [05/May/2026 10:28:02] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:02,426 - INFO - 127.0.0.1 - - [05/May/2026 10:28:02] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:04,455 - INFO - 127.0.0.1 - - [05/May/2026 10:28:04] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:04,754 - INFO - 127.0.0.1 - - [05/May/2026 10:28:04] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:08,419 - INFO - 127.0.0.1 - - [05/May/2026 10:28:08] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:08,996 - INFO - 127.0.0.1 - - [05/May/2026 10:28:08] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:12,788 - INFO - 127.0.0.1 - - [05/May/2026 10:28:12] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:14,046 - INFO - 127.0.0.1 - - [05/May/2026 10:28:14] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:17,025 - INFO - 127.0.0.1 - - [05/May/2026 10:28:17] "POST /predict HTTP/1.1" 200 -
+2026-05-05 10:28:20,327 - INFO - 127.0.0.1 - - [05/May/2026 10:28:20] "POST /predict HTTP/1.1" 200 -
+2026-05-06 15:22:55,277 - WARNING - TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-06 15:22:55,864 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-06 15:22:55,864 - INFO - [33mPress CTRL+C to quit[0m
+2026-05-06 15:29:38,254 - INFO - 127.0.0.1 - - [06/May/2026 15:29:38] "POST /predict HTTP/1.1" 200 -
+2026-05-06 15:29:38,255 - INFO - 127.0.0.1 - - [06/May/2026 15:29:38] "POST /predict HTTP/1.1" 200 -
+2026-05-07 01:27:13,742 | WARNING | TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-07 01:27:14,143 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-07 01:27:14,143 | INFO | [33mPress CTRL+C to quit[0m
+2026-05-07 01:30:03,093 | INFO | ECG=0.0, EMG=0.0, EEG=0.0, STATE=NORMAL, PROB=0.3866, TIME=8491.51
+2026-05-07 01:30:03,094 | INFO | 127.0.0.1 - - [07/May/2026 01:30:03] "POST /predict HTTP/1.1" 200 -
+2026-05-07 01:44:20,097 | WARNING | TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-07 01:44:20,754 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-07 01:44:20,755 | INFO | [33mPress CTRL+C to quit[0m
+2026-05-07 01:44:53,209 | INFO | ECG=500.0, EMG=400.0, EEG=600.0, STATE=NORMAL, PROB=0.5589, TIME=7347.29
+2026-05-07 01:44:53,210 | INFO | 127.0.0.1 - - [07/May/2026 01:44:53] "POST /predict HTTP/1.1" 200 -
+2026-05-07 01:46:55,456 | INFO | ECG=0.0, EMG=0.0, EEG=0.0, STATE=NORMAL, PROB=0.3866, TIME=229.26
+2026-05-07 01:46:55,457 | INFO | 127.0.0.1 - - [07/May/2026 01:46:55] "POST /predict HTTP/1.1" 200 -
+2026-05-07 01:48:27,157 | INFO | ECG=0.0, EMG=0.0, EEG=0.0, STATE=NORMAL, PROB=0.3866, TIME=259.06
+2026-05-07 01:48:27,158 | INFO | 127.0.0.1 - - [07/May/2026 01:48:27] "POST /predict HTTP/1.1" 200 -
+2026-05-07 13:03:11,251 | WARNING | TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-07 13:03:11,514 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-07 13:03:11,514 | INFO | [33mPress CTRL+C to quit[0m
+2026-05-07 13:05:10,446 | INFO | ECG=0.0, EMG=0.0, EEG=0.0, STATE=NORMAL, PROB=0.3866, TIME=4582.98
+2026-05-07 13:05:10,447 | INFO | 127.0.0.1 - - [07/May/2026 13:05:10] "POST /predict HTTP/1.1" 200 -
+2026-05-07 13:08:20,016 | INFO | 127.0.0.1 - - [07/May/2026 13:08:20] "GET /health HTTP/1.1" 200 -
+2026-05-07 13:08:20,081 | INFO | 127.0.0.1 - - [07/May/2026 13:08:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-05-07 13:11:15,284 | INFO | ECG=500.0, EMG=400.0, EEG=600.0, STATE=NORMAL, PROB=0.5589, TIME=170.92
+2026-05-07 13:11:15,285 | INFO | 127.0.0.1 - - [07/May/2026 13:11:15] "POST /predict HTTP/1.1" 200 -
+2026-05-07 13:11:51,704 | INFO | ECG=500.0, EMG=400.0, EEG=600.0, STATE=NORMAL, PROB=0.5589, TIME=158.21
+2026-05-07 13:11:51,704 | INFO | 127.0.0.1 - - [07/May/2026 13:11:51] "POST /predict HTTP/1.1" 200 -
+2026-05-07 13:12:05,400 | INFO | ECG=500.0, EMG=400.0, EEG=600.0, STATE=NORMAL, PROB=0.5589, TIME=151.03
+2026-05-07 13:12:05,401 | INFO | 127.0.0.1 - - [07/May/2026 13:12:05] "POST /predict HTTP/1.1" 200 -
+2026-05-07 13:12:06,607 | INFO | ECG=500.0, EMG=400.0, EEG=600.0, STATE=NORMAL, PROB=0.5589, TIME=147.79
+2026-05-07 13:12:06,608 | INFO | 127.0.0.1 - - [07/May/2026 13:12:06] "POST /predict HTTP/1.1" 200 -
+2026-05-07 16:23:08,676 | WARNING | TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+2026-05-07 16:23:08,907 | INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.19:5001
+2026-05-07 16:23:08,908 | INFO | [33mPress CTRL+C to quit[0m
+2026-05-07 16:23:41,141 | INFO | ECG=0.0, EMG=0.0, EEG=0.0, STATE=NORMAL, PROB=0.3866, TIME=4888.35
+2026-05-07 16:23:41,142 | INFO | 127.0.0.1 - - [07/May/2026 16:23:41] "POST /predict HTTP/1.1" 200 -
+2026-05-07 16:28:39,737 | INFO | ECG=0.0, EMG=0.0, EEG=0.0, STATE=NORMAL, PROB=0.3866, TIME=229.1
+2026-05-07 16:28:39,738 | INFO | 127.0.0.1 - - [07/May/2026 16:28:39] "POST /predict HTTP/1.1" 200 -
+2026-05-07 16:28:46,914 | INFO | ECG=0.0, EMG=0.0, EEG=0.0, STATE=NORMAL, PROB=0.3866, TIME=202.38
+2026-05-07 16:28:46,914 | INFO | 127.0.0.1 - - [07/May/2026 16:28:46] "POST /predict HTTP/1.1" 200 -
+2026-05-07 16:28:48,245 | INFO | ECG=0.0, EMG=0.0, EEG=0.0, STATE=NORMAL, PROB=0.3866, TIME=177.59
+2026-05-07 16:28:48,246 | INFO | 127.0.0.1 - - [07/May/2026 16:28:48] "POST /predict HTTP/1.1" 200 -
+2026-05-07 17:37:33,780 | ERROR | Prediction error: float() argument must be a string or a real number, not 'list'
+2026-05-07 17:37:33,784 | INFO | 127.0.0.1 - - [07/May/2026 17:37:33] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
