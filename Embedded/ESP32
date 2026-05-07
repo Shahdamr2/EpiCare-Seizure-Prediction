@@ -1,0 +1,296 @@
+// /*
+//  * EpiCare - PROTEUS WORKING VERSION
+//  * من غير مكتبات خارجية (بدون MPU6050)
+//  */
+
+// // ---------------- PINS ----------------
+// const int ECG_PIN = A0;
+// const int EMG_PIN = A5;
+// const int LED_PIN = 4;
+// const int MOTOR_PIN = 2;
+
+// // ---------------- STATE ----------------
+// char systemState = 'N';
+
+// // ---------------- EEG SIMULATION ----------------
+// float eegPhase = 0;
+// unsigned long lastEEGUpdate = 0;
+// int currentMovement = 5;
+
+// // ---------------- TIMING ----------------
+// unsigned long lastSendTime = 0;
+// const unsigned long SEND_INTERVAL = 10;  // 10ms = 10Hz
+
+// // ---------------- SETUP ----------------
+// void setup() {
+//   Serial.begin(9600);  // استخدم 9600 عشان Proteus
+//   // Serial.begin(115200);
+  
+//   pinMode(LED_PIN, OUTPUT);
+//   pinMode(MOTOR_PIN, OUTPUT);
+  
+//   digitalWrite(LED_PIN, LOW);
+//   analogWrite(MOTOR_PIN, 0);
+  
+//   // تأكيد بدء التشغيل
+//   Serial.println("=== EpiCare System Started ===");
+//   Serial.println("Ready to send data...");
+// }
+
+// // ---------------- MAIN LOOP ----------------
+// void loop() {
+//   unsigned long now = millis();
+  
+//   // إرسال البيانات
+//   if (now - lastSendTime >= SEND_INTERVAL) {
+//     lastSendTime = now;
+//     sendSensorData();
+//   }
+  
+//   // استقبال الأوامر
+//   receiveCommands();
+  
+//   // تنفيذ الإجراءات
+//   executeActuations();
+// }
+
+// // ---------------- SEND SENSOR DATA ----------------
+// void sendSensorData() {
+//   // قراءة أو توليد البيانات
+//   int eeg = generateFakeEEG();
+//   int ecg = analogRead(ECG_PIN);
+//   int emg = analogRead(EMG_PIN);
+  
+//   // إرسال بصيغة JSON
+//   Serial.print("{\"eeg\":");
+//   Serial.print(eeg);
+//   Serial.print(",\"ecg\":");
+//   Serial.print(ecg);
+//   Serial.print(",\"emg\":");
+//   Serial.print(emg);
+//   Serial.println("\"}");
+// }
+
+// // ---------------- GENERATE FAKE EEG ----------------
+// int generateFakeEEG() {
+//   eegPhase += 0.1;
+//   if (eegPhase > 6.28) eegPhase = 0;
+  
+//   int value = 512 + (int)(sin(eegPhase) * 100);
+  
+//   // لو في حالة نوبة، زود النشاط
+//   if (systemState == 'S') {
+//     value += random(-80, 150);
+//   } else if (systemState == 'P') {
+//     value += random(-30, 50);
+//   }
+  
+//   return constrain(value, 0, 1023);
+// }
+
+// // ---------------- RECEIVE COMMANDS ----------------
+// void receiveCommands() {
+//   if (Serial.available() > 0) {
+//     String cmd = Serial.readStringUntil('\n');
+//     cmd.trim();
+    
+//     if (cmd.length() > 0) {
+//       char newState = cmd.charAt(0);
+      
+//       if (newState == 'N' || newState == 'P' || newState == 'S') {
+//         systemState = newState;
+        
+//         // تأكيد استلام الأمر
+//         Serial.print("{\"ack\":\"");
+//         Serial.print(systemState);
+//         Serial.println("\"}");
+        
+//         // وميض LED للتأكيد
+//         digitalWrite(LED_PIN, HIGH);
+//         delay(50);
+//         digitalWrite(LED_PIN, LOW);
+//       }
+//     }
+//   }
+// }
+
+// // ---------------- EXECUTE ACTUATIONS ----------------
+// void executeActuations() {
+//   switch(systemState) {
+//     case 'N':
+//       digitalWrite(LED_PIN, LOW);
+//       analogWrite(MOTOR_PIN, 0);
+//       break;
+      
+//     case 'P':
+//       // وميض LED
+//       static unsigned long lastBlink = 0;
+//       if (millis() - lastBlink > 300) {
+//         lastBlink = millis();
+//         digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+//       }
+//       analogWrite(MOTOR_PIN, 128);
+//       break;
+      
+//     case 'S':
+//       digitalWrite(LED_PIN, HIGH);
+//       analogWrite(MOTOR_PIN, 255);
+//       break;
+//   }
+// }
+
+// ظظظظظظظظظظظظظظ
+/*
+ * EpiCare - PROTEUS FINAL VERSION
+ * بيبعث EEG, ECG, EMG بس (نفس ترتيب الموديل)
+ * الـ Backend هو اللي بيجمع ويبعث للموديل
+ */
+
+// ---------------- PINS ----------------
+const int ECG_PIN = A0;
+const int EMG_PIN = A5;
+const int LED_PIN = 4;
+const int MOTOR_PIN = 2;
+
+// ---------------- STATE (يتم استقبالها من Backend) ----------------
+char systemState = 'N';  // N=Normal, P=Warning, S=Seizure
+
+// ---------------- EEG SIMULATION (FAKE DATA) ----------------
+float eegPhase1 = 0;     // للقناة الأولى
+float eegPhase2 = 0;     // للقناة الثانية
+
+// ---------------- TIMING ----------------
+unsigned long lastSendTime = 0;
+const unsigned long SEND_INTERVAL = 10;  // 10ms = 100Hz
+
+// ---------------- SETUP ----------------
+void setup() {
+  Serial.begin(9600);
+  
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(MOTOR_PIN, OUTPUT);
+  
+  digitalWrite(LED_PIN, LOW);
+  analogWrite(MOTOR_PIN, 0);
+  
+  Serial.println("{\"type\":\"status\",\"message\":\"EpiCare Ready\"}");
+}
+
+// ---------------- MAIN LOOP ----------------
+void loop() {
+  unsigned long now = millis();
+  
+  // إرسال البيانات كل 10ms
+  if (now - lastSendTime >= SEND_INTERVAL) {
+    lastSendTime = now;
+    sendSensorData();
+  }
+  
+  // استقبال الحالة من Backend
+  receiveState();
+  
+  // تنفيذ الإجراءات (LED + Motor)
+  executeActuation();
+}
+
+// ---------------- SEND EEG, ECG, EMG فقط (نفس ترتيب الموديل) ----------------
+void sendSensorData() {
+  // EEG: قناتين (2 channels)
+  int eeg1 = generateFakeEEG(1);
+  int eeg2 = generateFakeEEG(2);
+  
+  // ECG: قناة واحدة
+  int ecg = analogRead(ECG_PIN);
+  
+  // EMG: قناة واحدة
+  int emg = analogRead(EMG_PIN);
+  
+  // 🔥 JSON format - eeg كمصفوفة من قناتين
+  Serial.print("{\"eeg\":[");
+  Serial.print(eeg1);
+  Serial.print(",");
+  Serial.print(eeg2);
+  Serial.print("],\"ecg\":");
+  Serial.print(ecg);
+  Serial.print(",\"emg\":");
+  Serial.println(emg);
+}
+
+// ---------------- GENERATE FAKE EEG (محاكاة لSignal) ----------------
+int generateFakeEEG(int channel) {
+  float phase;
+  
+  if (channel == 1) {
+    eegPhase1 += 0.0628;  // 10Hz wave
+    if (eegPhase1 > 6.28318) eegPhase1 = 0;
+    phase = eegPhase1;
+  } else {
+    eegPhase2 += 0.0628;
+    if (eegPhase2 > 6.28318) eegPhase2 = 0;
+    phase = eegPhase2;
+  }
+  
+  // إشارة طبيعية (زي ما المريض الطبيعي بيظهر)
+  int value = 512 + (int)(sin(phase) * 100);
+  value += random(-15, 15);
+  
+  // لو في حالة نوبة، الإشارة تتغير (تكون غير طبيعية)
+  if (systemState == 'S') {
+    value += random(-60, 150);
+    if (random(0, 100) > 95) {
+      value += 200;  // spike
+    }
+  } else if (systemState == 'P') {
+    value += random(-20, 50);
+  }
+  
+  return constrain(value, 0, 1023);
+}
+
+// ---------------- RECEIVE STATE FROM BACKEND ----------------
+void receiveState() {
+  if (Serial.available() > 0) {
+    String cmd = Serial.readStringUntil('\n');
+    cmd.trim();
+    
+    if (cmd.length() > 0) {
+      char newState = cmd.charAt(0);
+      if (newState == 'N' || newState == 'P' || newState == 'S') {
+        systemState = newState;
+      }
+    }
+  }
+}
+
+// ---------------- EXECUTE ACTUATION (LED + MOTOR) ----------------
+void executeActuation() {
+  switch(systemState) {
+    case 'N':  // NORMAL - ولا حاجة
+      digitalWrite(LED_PIN, LOW);
+      analogWrite(MOTOR_PIN, 0);
+      break;
+      
+    case 'P':  // PREDICTION WARNING - تنبيه متقطع
+      blinkLED(300);           // توم وتطفى بسرعة
+      analogWrite(MOTOR_PIN, 128);  // موتور سرعة متوسطة
+      break;
+      
+    case 'S':  // SEIZURE DETECTED - إنذار كامل
+      digitalWrite(LED_PIN, HIGH);   // ليد ثابت منور
+      analogWrite(MOTOR_PIN, 255);   // موتور أقصى سرعة
+      break;
+  }
+}
+
+// ---------------- BLINK LED ----------------
+void blinkLED(int interval) {
+  static unsigned long lastBlink = 0;
+  static bool ledState = false;
+  unsigned long now = millis();
+  
+  if (now - lastBlink >= (unsigned long)interval) {
+    lastBlink = now;
+    ledState = !ledState;
+    digitalWrite(LED_PIN, ledState);
+  }
+}
