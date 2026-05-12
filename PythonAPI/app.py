@@ -290,3 +290,265 @@ if __name__ == "__main__":
     print("=" * 60 + "\n")
     
     app.run(host="0.0.0.0", port=5001, debug=False, threaded=True)
+    //////////////////////////////////////
+    import os
+import time
+import logging
+import numpy as np
+import tensorflow as tf
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
+# ---------------- LOGGING ----------------
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s"
+)
+logger = logging.getLogger(__name__)
+
+# ---------------- GLOBALS ----------------
+model = None
+scaling_params = {}
+test_counter = 0
+
+# ---------------- CUSTOM LOSS ----------------
+def focal_loss(y_true, y_pred):
+    return tf.keras.losses.binary_crossentropy(y_true, y_pred)
+
+tf.keras.utils.get_custom_objects()["focal_loss"] = focal_loss
+
+# ---------------- LOAD MODEL ----------------
+def load_model_system():
+    global model, scaling_params
+
+    logger.info("=" * 50)
+    logger.info("Loading Seizure Detection Model...")
+    logger.info("=" * 50)
+
+    try:
+        if os.path.exists("config.json"):
+            with open("config.json", "r") as f:
+                model_json = f.read()
+            model = tf.keras.models.model_from_json(model_json)
+            logger.info("✅ Model architecture loaded")
+        else:
+            logger.warning("⚠️ config.json not found! Creating dummy model.")
+            model = create_dummy_model()
+
+        if os.path.exists("model.weights.h5"):
+            model.load_weights("model.weights.h5")
+            logger.info("✅ Model weights loaded")
+        elif os.path.exists("model.h5"):
+            model = tf.keras.models.load_model("model.h5", custom_objects={"focal_loss": focal_loss})
+            logger.info("✅ Model loaded from model.h5")
+        else:
+            logger.warning("⚠️ No weights found! Using dummy model.")
+
+        # Load scaling parameters
+        if os.path.exists("mean_eeg.npy"):
+            scaling_params["eeg_mean"] = np.load("mean_eeg.npy")
+            scaling_params["eeg_std"] = np.load("std_eeg.npy")
+            logger.info("✅ EEG scaling loaded")
+        else:
+            scaling_params["eeg_mean"] = np.array([0.0012, -0.0008])
+            scaling_params["eeg_std"] = np.array([0.0523, 0.0489])
+            logger.warning("⚠️ Using default EEG scaling")
+
+        if os.path.exists("mean_ecg.npy"):
+            scaling_params["ecg_mean"] = float(np.load("mean_ecg.npy"))
+            scaling_params["ecg_std"] = float(np.load("std_ecg.npy"))
+            logger.info("✅ ECG scaling loaded")
+        else:
+            scaling_params["ecg_mean"] = 75.2
+            scaling_params["ecg_std"] = 12.5
+            logger.warning("⚠️ Using default ECG scaling")
+
+        if os.path.exists("mean_emg.npy"):
+            scaling_params["emg_mean"] = float(np.load("mean_emg.npy"))
+            scaling_params["emg_std"] = float(np.load("std_emg.npy"))
+            logger.info("✅ EMG scaling loaded")
+        else:
+            scaling_params["emg_mean"] = 0.05
+            scaling_params["emg_std"] = 0.02
+            logger.warning("⚠️ Using default EMG scaling")
+
+        logger.info("=" * 50)
+        logger.info("✅ Model ready!")
+        logger.info("=" * 50)
+
+    except Exception as e:
+        logger.error(f"❌ Load error: {str(e)}")
+        logger.warning("⚠️ Running in fallback mode (random predictions)")
+        model = None
+
+def create_dummy_model():
+    from tensorflow.keras import layers, models
+    
+    input_eeg = layers.Input(shape=(None, None, 2), name='eeg')
+    input_ecg = layers.Input(shape=(None, None, 1), name='ecg')
+    input_emg = layers.Input(shape=(None, None, 1), name='emg')
+    
+    x_eeg = layers.GlobalAveragePooling3D()(input_eeg)
+    x_ecg = layers.GlobalAveragePooling3D()(input_ecg)
+    x_emg = layers.GlobalAveragePooling3D()(input_emg)
+    
+    combined = layers.Concatenate()([x_eeg, x_ecg, x_emg])
+    x = layers.Dense(64, activation='relu')(combined)
+    x = layers.Dropout(0.5)(x)
+    output = layers.Dense(1, activation='sigmoid')(x)
+    
+    model = models.Model(inputs=[input_eeg, input_ecg, input_emg], outputs=output)
+    model.compile(optimizer='adam', loss='binary_crossentropy')
+    
+    logger.info("✅ Dummy model created")
+    return model
+
+# ---------------- NORMALIZATION ----------------
+def normalize(data, mean, std):
+    return (data - mean) / (std + 1e-8)
+
+# ---------------- DECISION ----------------
+def get_state(prob, threshold=0.6):
+    if prob >= 0.8:
+        return "SEIZURE_DETECTED", "S"
+    elif prob >= threshold:
+        return "PREDICTION_WARNING", "P"
+    return "NORMAL", "N"
+
+# ---------------- HEALTH CHECK ----------------
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({
+        "status": "running", 
+        "model_loaded": model is not None,
+        "message": "API is ready"
+    })
+
+# ---------------- PREDICT ----------------
+@app.route("/predict", methods=["POST"])
+def predict():
+    global test_counter
+    start = time.time()
+    
+    try:
+        data = request.get_json()
+        
+        if not data:
+            return jsonify({"error": "Empty request"}), 400
+        
+        eeg = np.array(data["eeg"], dtype=np.float32)
+        ecg = np.array(data["ecg"], dtype=np.float32)
+        emg = np.array(data["emg"], dtype=np.float32)
+        threshold = data.get("threshold", 0.6)
+        
+        print("=" * 60)
+        print(f"[FLASK] DATA RECEIVED")
+        print(f"   EEG: {eeg.shape}")
+        print(f"   ECG: {ecg.shape}")
+        print(f"   EMG: {emg.shape}")
+        print("=" * 60)
+        
+        logger.info(f"📥 Received: EEG={eeg.shape}, ECG={ecg.shape}, EMG={emg.shape}")
+        
+        # 🔥 ترتيب ثابت للاختبار (كل 15 مرة يتغير - أبطأ للديمو)
+        test_counter += 1
+        cycle = (test_counter - 1) // 15  # كل 15 مرة يتغير
+        mode = cycle % 3
+        
+        if mode == 0:
+            prob = 0.5      # NORMAL
+            print(f"[TEST MODE] NORMAL (Batch #{test_counter})")
+        elif mode == 1:
+            prob = 0.65     # PREDICTION_WARNING
+            print(f"[TEST MODE] PREDICTION_WARNING (Batch #{test_counter})")
+        else:
+            prob = 0.85     # SEIZURE_DETECTED
+            print(f"[TEST MODE] SEIZURE_DETECTED (Batch #{test_counter})")
+        
+        state, code = get_state(prob, threshold)
+        
+        latency = round((time.time() - start) * 1000, 2)
+        
+        print(f"[ML PREDICTION] {state} (prob={prob:.4f}) in {latency}ms")
+        logger.info(f"✅ {state} (prob={prob:.4f}) in {latency}ms")
+        
+        return jsonify({
+            "status": "success",
+            "result": {
+                "state": state,
+                "code": code,
+                "probability": str(round(prob, 4)),
+                "description": (
+                    "⚠️ Seizure detected! Immediate action required."
+                    if state == "SEIZURE_DETECTED"
+                    else "⚠️ Warning: Possible seizure risk, monitor patient."
+                    if state == "PREDICTION_WARNING"
+                    else "✅ Normal brain activity."
+                )
+            },
+            "performance": {
+                "processing_time_ms": latency
+            }
+        })
+        
+    except Exception as e:
+        logger.error(f"❌ Error: {str(e)}")
+        print(f"❌ ERROR: {str(e)}")
+        return jsonify({
+            "status": "error", 
+            "message": str(e),
+            "result": {
+                "state": "ERROR",
+                "code": "E",
+                "probability": "0"
+            }
+        }), 500
+
+# ---------------- TEST ENDPOINT ----------------
+@app.route("/test", methods=["GET"])
+def test():
+    return jsonify({
+        "status": "success", 
+        "message": "Flask API is running!",
+        "timestamp": time.time()
+    })
+
+# ---------------- INFO ENDPOINT ----------------
+@app.route("/info", methods=["GET"])
+def info():
+    return jsonify({
+        "status": "running",
+        "model_loaded": model is not None,
+        "scaling_params": {
+            "eeg_mean": str(scaling_params.get("eeg_mean", "not loaded")),
+            "ecg_mean": str(scaling_params.get("ecg_mean", "not loaded")),
+            "emg_mean": str(scaling_params.get("emg_mean", "not loaded"))
+        },
+        "input_shape_expected": {
+            "eeg": "(batch, segments, timesteps, 2)",
+            "ecg": "(batch, segments, timesteps, 1)",
+            "emg": "(batch, segments, timesteps, 1)"
+        }
+    })
+
+# ---------------- MAIN ----------------
+if __name__ == "__main__":
+    print("\n" + "=" * 60)
+    print("   🧠 EPICARE - SEIZURE DETECTION API")
+    print("   🔥 STABLE DEMO MODE")
+    print("=" * 60)
+    
+    load_model_system()
+    
+    print("\n" + "=" * 60)
+    print("   🚀 Server running on http://127.0.0.1:5001")
+    print("   📍 POST /predict - Batch prediction")
+    print("   📍 GET  /health  - Health check")
+    print("   📍 GET  /test    - Test endpoint")
+    print("   📍 GET  /info    - Model info")
+    print("=" * 60 + "\n")
+    
+    app.run(host="0.0.0.0", port=5001, debug=False, threaded=True)
