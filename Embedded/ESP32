@@ -294,3 +294,134 @@ void blinkLED(int interval) {
     digitalWrite(LED_PIN, ledState);
   }
 }
+//////////////////////////////////////////////////////////////////
+
+/*
+ * EpiCare - PROTEUS FINAL VERSION
+ * بيبعث EEG, ECG, EMG (نفس ترتيب الموديل)
+ * الـ Backend هو اللي بيجمع ويبعث للموديل
+ */
+
+const int ECG_PIN = A0;
+const int EMG_PIN = A5;
+const int LED_PIN = 4;
+const int MOTOR_PIN = 2;
+
+char systemState = 'N';
+
+float eegPhase1 = 0;
+float eegPhase2 = 0;
+
+unsigned long lastSendTime = 0;
+const unsigned long SEND_INTERVAL = 100;  // 100ms = 10Hz
+
+void setup() {
+  Serial.begin(9600);
+  
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(MOTOR_PIN, OUTPUT);
+  
+  digitalWrite(LED_PIN, LOW);
+  analogWrite(MOTOR_PIN, 0);
+}
+
+void loop() {
+  unsigned long now = millis();
+  
+  if (now - lastSendTime >= SEND_INTERVAL) {
+    lastSendTime = now;
+    sendSensorData();
+  }
+  
+  receiveState();
+  executeActuation();
+}
+
+void sendSensorData() {
+  int eeg1 = generateFakeEEG(1);
+  int eeg2 = generateFakeEEG(2);
+  int ecg = analogRead(ECG_PIN);
+  int emg = analogRead(EMG_PIN);
+  
+  Serial.print("{\"eeg\":[");
+  Serial.print(eeg1);
+  Serial.print(",");
+  Serial.print(eeg2);
+  Serial.print("],\"ecg\":");
+  Serial.print(ecg);
+  Serial.print(",\"emg\":");
+  Serial.print(emg);
+  Serial.println("}");
+}
+
+int generateFakeEEG(int channel) {
+  float phase;
+  
+  if (channel == 1) {
+    eegPhase1 += 0.0628;
+    if (eegPhase1 > 6.28318) eegPhase1 = 0;
+    phase = eegPhase1;
+  } else {
+    eegPhase2 += 0.0628;
+    if (eegPhase2 > 6.28318) eegPhase2 = 0;
+    phase = eegPhase2;
+  }
+  
+  int value = 512 + (int)(sin(phase) * 100);
+  value += random(-15, 15);
+  
+  if (systemState == 'S') {
+    value += random(-60, 150);
+    if (random(0, 100) > 95) {
+      value += 200;
+    }
+  } else if (systemState == 'P') {
+    value += random(-20, 50);
+  }
+  
+  return constrain(value, 0, 1023);
+}
+
+void receiveState() {
+  if (Serial.available() > 0) {
+    String cmd = Serial.readStringUntil('\n');
+    cmd.trim();
+    if (cmd.length() > 0) {
+      char newState = cmd.charAt(0);
+      if (newState == 'N' || newState == 'P' || newState == 'S') {
+        systemState = newState;
+      }
+    }
+  }
+}
+
+void executeActuation() {
+  switch(systemState) {
+    case 'N':
+      digitalWrite(LED_PIN, LOW);
+      analogWrite(MOTOR_PIN, 0);
+      break;
+      
+    case 'P':
+      blinkLED(300);
+      analogWrite(MOTOR_PIN, 128);
+      break;
+      
+    case 'S':
+      digitalWrite(LED_PIN, HIGH);
+      analogWrite(MOTOR_PIN, 255);
+      break;
+  }
+}
+
+void blinkLED(int interval) {
+  static unsigned long lastBlink = 0;
+  static bool ledState = false;
+  unsigned long now = millis();
+  
+  if (now - lastBlink >= (unsigned long)interval) {
+    lastBlink = now;
+    ledState = !ledState;
+    digitalWrite(LED_PIN, ledState);
+  }
+}
